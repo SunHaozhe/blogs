@@ -106,6 +106,8 @@ published: true
 | polygon | polygone  | 多边形 |
 | antiderivative <br>inverse derivative <br>primitive function <br>primitive integral <br>indefinite integral | primitive  | 不定积分 |
 | faculty psychology | psychologie des facultés  | 官能心理学 |
+| interpolation | interpolation | 插值，内插 |
+| extrapolation | extrapolation | 外推 |
 
 
 
