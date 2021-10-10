@@ -20,6 +20,10 @@ published: true
 * go_forward: cmd + right
 
 
+### My custom shortcuts for Preview
+
+
+![preview_shortcuts_v1.png](/assets/images/blog/preview_shortcuts_v1.png)
 
 
 # Logitech G HUB
@@ -29,7 +33,6 @@ The shortcuts are useful to create macros for `Logitech G HUB`.
 How to create application-specific macros?
 
 * `Active profile DESKTOP Default` ==> `Games & Applications` ==> `add game or application`
-
 
 
 
