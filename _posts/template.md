@@ -17,7 +17,7 @@ published: true
 
 ```
 
-![XXX](/assets/images/blog/XXX)
+![XXX](/blogs/assets/images/blog/XXX)
 
 ```
 

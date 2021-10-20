@@ -28,5 +28,7 @@ Identity matrix is the only real matrix which is positive definite and orthogona
 
 ![entropy_venn](/blogs/assets/images/blog/entropy_venn.png)
 
+![conditional_mutual_information_venn](/blogs/assets/images/blog/conditional_mutual_information_venn.png)
+
 
 
