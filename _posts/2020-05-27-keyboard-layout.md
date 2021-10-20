@@ -18,18 +18,18 @@ published: true
 Chinese keyboard layout QWERTY [1]
 
 
-![chinese_keyboard_layout](/assets/images/blog/chinese_keyboard_layout.png)
+![chinese_keyboard_layout](/blogs/assets/images/blog/chinese_keyboard_layout.png)
 
 
 
 French keyboard layout AZERTY [1]
 
-![french_keyboard_layout](/assets/images/blog/french_keyboard_layout.png)
+![french_keyboard_layout](/blogs/assets/images/blog/french_keyboard_layout.png)
 
 
 French keyboard layout AZERTY (MacBook or Apple keyboard) [2]
 
-![french_mac_keyboard_layout](/assets/images/blog/french_mac_keyboard_layout.png)
+![french_mac_keyboard_layout](/blogs/assets/images/blog/french_mac_keyboard_layout.png)
 
 
 # References
