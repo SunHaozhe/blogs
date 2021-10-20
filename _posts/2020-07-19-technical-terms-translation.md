@@ -108,6 +108,7 @@ published: true
 | faculty psychology | psychologie des facultés  | 官能心理学 |
 | interpolation | interpolation | 插值，内插 |
 | extrapolation | extrapolation | 外推 |
+| convex hull <br>convex envelope <br>convex closure | enveloppe convexe | 凸包 |
 
 
 
