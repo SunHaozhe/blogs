@@ -23,7 +23,7 @@ published: true
 ### My custom shortcuts for Preview
 
 
-![preview_shortcuts_v1.png](/assets/images/blog/preview_shortcuts_v1.png)
+![preview_shortcuts_v1.png](/blogs/assets/images/blog/preview_shortcuts_v1.png)
 
 
 # Logitech G HUB
