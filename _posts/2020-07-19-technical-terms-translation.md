@@ -109,6 +109,8 @@ published: true
 | interpolation | interpolation | 插值，内插 |
 | extrapolation | extrapolation | 外推 |
 | convex hull <br>convex envelope <br>convex closure | enveloppe convexe | 凸包 |
+| simplex | simplexe | 单纯形 |
+| simplicial complex | complexe simplicial | 单纯复形 |
 
 
 
