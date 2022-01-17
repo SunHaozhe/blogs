@@ -1,7 +1,7 @@
 ---
 layout: post
 category: Misc     
-title: Submitting latex to arXiv  
+title: Submitting latex project to arXiv  
 tagline: by SunHaozhe
 tags: 
   - Utilities
@@ -14,6 +14,7 @@ published: true
 
 If you use `.bib` file, you need to upload the corresponding `.bbl` file onto arXiv. `.bbl` file can be obtained by locally compile the source latex files. You may also download the `.bbl` file from OverLeaf.
 
+
 # Which files/folders to upload?
 
 Folders containing all figures, `.tex` files, `.bib` files, `.bbl` files should be included. Other files should be deleted before uploading to arXiv, for example `.pdf`, `.aux`,  `.log`, `.blg`, `.out`, `.synctex.gz` files. 
@@ -21,6 +22,9 @@ Folders containing all figures, `.tex` files, `.bib` files, `.bbl` files should 
 The name (before `.tex` or `.bib`) of the `.bib` file should be the same as the corresponding `.tex` file. For example, `main.tex` and `main.bib` (thus `main.bbl`). 
 
 If you have a second `.tex` file, say `supplement.tex`. It will also be compiled and the generated pdf will be concated at the end of the generated pdf of `main.tex`. Consider adding `supplement.bib` and `supplement.bbl`.
+
+
+Zip all the files (the whole folder) and upload the `.zip` file to arXiv.
 
 
 # OverLeaf support for arXiv
