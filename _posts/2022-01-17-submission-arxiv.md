@@ -65,6 +65,8 @@ Figures can be put in folders.
 
 The name of figures should not use symbols like `[` or `]`. 
 
+Figures can be `.png`, `.pdf`. 
+
 # hyperref package 
 
 ```
