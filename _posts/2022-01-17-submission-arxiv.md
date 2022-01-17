@@ -17,7 +17,7 @@ If you use `.bib` file, you need to upload the corresponding `.bbl` file onto ar
 
 # Which files/folders to upload?
 
-Folders containing all figures, `.tex` files, `.bib` files, `.bbl` files should be included. Other files should be deleted before uploading to arXiv, for example `.pdf`, `.aux`,  `.log`, `.blg`, `.out`, `.synctex.gz` files. 
+Folders containing all figures, `.tex` files, `.bib` files, `.bbl` files, `.sty` files should be included. Other files should be deleted before uploading to arXiv, for example `.pdf`, `.aux`,  `.log`, `.blg`, `.out`, `.synctex.gz` files. 
 
 The name (before `.tex` or `.bib`) of the `.bib` file should be the same as the corresponding `.tex` file. For example, `main.tex` and `main.bib` (thus `main.bbl`). 
 
