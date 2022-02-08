@@ -31,13 +31,13 @@ Notice that the comments above have little to do with least squares and apply ge
 
 # Condition number 
 
-In [linear regression](https://sunhaozhe.github.io/2019/12/21/machine-learning-quick-notes/), the condition number (条件数) can be used as a diagnostic for multicollinearity. In the field of numerical analysis, the condition number of a function measures how much the output value of the function can change for a small change in the input argument. A problem with a low condition number is said to be well-conditioned, while a problem with a high condition number is said to be ill-conditioned [6, 7]. 
+In [linear regression](https://sunhaozhe.github.io/blogs/2019/12/21/machine-learning-quick-notes/), the condition number (条件数) can be used as a diagnostic for multicollinearity. In the field of numerical analysis, the condition number of a function measures how much the output value of the function can change for a small change in the input argument. A problem with a low condition number is said to be well-conditioned, while a problem with a high condition number is said to be ill-conditioned [6, 7]. 
 
 # Variance inflation factor (VIF)
 
 Variance inflation factor (方差扩大因子) quantifies the severity of multicollinearity in an OLS regression analysis. 
 
-Check [Sun Haozhe's Blog - statsmodels memo](https://sunhaozhe.github.io/2020/03/23/statsmodels-memo/)
+Check [Sun Haozhe's Blog - statsmodels memo](https://sunhaozhe.github.io/blogs/2020/03/23/statsmodels-memo/)
 
 # Mathematical foundation
 
@@ -136,7 +136,7 @@ $$\widehat{\mathbb{Var}[\hat{\theta}]} = \widehat{\sigma^2} (X^\intercal X)^{-1}
 
 One result that remains to be confirmed is the following [9]:
 
-![meaning_behind_XTX_1](/assets/images/blog/meaning_behind_XTX_1.png)
+![meaning_behind_XTX_1](/blogs/assets/images/blog/meaning_behind_XTX_1.png)
 
 
 
@@ -163,7 +163,6 @@ One result that remains to be confirmed is the following [9]:
 [9] The meaning behind $(X^TX)^{-1}$. (n.d.). Mathematics Stack Exchange. https://math.stackexchange.com/questions/2624986/the-meaning-behind-xtx-1/2625661#2625661 
 
 [10] Model selection: Regression models. (n.d.). https://campus.datacamp.com/courses/practicing-machine-learning-interview-questions-in-python/model-selection-and-evaluation-4?ex=9
-
 
 
 
