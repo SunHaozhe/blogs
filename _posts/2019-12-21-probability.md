@@ -107,6 +107,9 @@ Mean: $p$
 Variance: $p (1 - p)$
 
 
+A Bernoulli trial (or binomial trial) is a random experiment with exactly two possible outcomes, "success" and "failure", in which the probability of success is the same every time the experiment is conducted. 
+
+
 # Binomial distribution 二项分布
 
 $$\mathbb{P}_{n, p}(X = k) = {n \choose k} p^k (1 - p)^{n - k}$$
@@ -114,6 +117,43 @@ $$\mathbb{P}_{n, p}(X = k) = {n \choose k} p^k (1 - p)^{n - k}$$
 Mean: $n p$
 
 Variance: $n p (1 - p)$
+
+
+# Geometric distribution
+
+The geometric distribution is either one of two discrete probability distributions:
+
+* The probability distribution of the number $X$ of Bernoulli trials needed to get one success, supported on the set $\{1, 2, 3, ...\}$.
+* The probability distribution of the number $Y = X − 1$ of failures before the first success, supported on the set $\{0, 1, 2, ...\}$.
+
+Which of these is called "the" geometric distribution is a matter of convention and convenience. These two different geometric distributions should not be confused with each other. 
+
+The probability that the first occurrence of success requires $k$ independent trials, each with success probability $p$, i.e. the number of trials up to and including the first success or the probability that the kth trial (out of k trials) is the first success: 
+
+$$\mathbb{P}(X = k) = (1-p)^{k-1} p$$
+
+Mean: $\frac{1}{p}$
+
+Variance: $\frac{1-p}{p^2}$
+
+
+The number of failures $Y$ until the first success:
+
+$$\mathbb{P}(Y = k) = (1-p)^{k} p$$
+
+Mean: $\frac{1 - p}{p}$
+
+Variance: $\frac{1-p}{p^2}$
+
+
+
+
+
+
+
+
+
+
 
 
 
