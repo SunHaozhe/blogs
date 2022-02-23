@@ -13,12 +13,17 @@ published: true
 
 # Shortcuts
 
-Default:
+### Default
 
 * `Ctrl/Cmd`+`J` shows and hides the Panel (bottom part, i.e. problems, terminal, Jupyter variables, etc.), no matter which one you are focused on. 
 * `Ctrl/Cmd`+`B` shows and hides the left-hand bar no matter whether Explorer, Debug etc. is active.
 
-User:
+
+![vscode_go_back_go_forward.png](/blogs/assets/images/blog/vscode_go_back_go_forward.png)
+
+
+
+### User
 
 * `Ctrl/Cmd`+`H` maximizes the Panel size of restores its default size, i.e. the command `View: Toggle Maximized Pane`. This keybinding was assigned to the command `Test: Toggle Test History in Peek` by default, this command now has no keybinding.
 
