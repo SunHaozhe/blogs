@@ -19,6 +19,11 @@ Shell programming in Linux/Unix
 
 # Steps to create a shell script
 
+```bash
+#!/bin/bash
+```
+
+
 * Create a text file any text editor, name this script file with extension `.sh`, for example `xxx.sh`
 * Start the script with `#!/bin/zsh` or `#!/bin/bash` or `#!/bin/sh` 
 * Write some code and save this file. 
