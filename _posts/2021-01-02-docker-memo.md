@@ -62,6 +62,13 @@ Remove unused data (remove all unused containers, networks, images (both danglin
 docker system prune
 ```
 
+Login to registry (in order to be able to push to DockerHub)
+
+```bash
+docker login --username "XXX" --password "YYY"
+```
+
+
 # Docker image
 
 Build an image from the Dockerfile in the current directory and tag the image
