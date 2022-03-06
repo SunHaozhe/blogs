@@ -117,4 +117,24 @@ This possibly means that there is an `IndexError: Target XXX is out of bounds.` 
 This problem is not solved.
 
 
+# Common GPUs
+
+
+
+Tesla V100 is the fastest NVIDIA GPU available on the market. V100 is 3x faster than P100. 
+
+FP64 64-bit (Double Precision) Floating Point Calculations:
+
+![nvidia-gpu-64.png](/blogs/assets/images/blog/nvidia-gpu-64.png)
+
+FP16 16-bit (Half Precision) Floating Point Calculations:
+
+![nvidia-gpu-16.png](/blogs/assets/images/blog/nvidia-gpu-16.png)
+
+GPU Memory Quantity:
+
+![nvidia-gpu-memory.png](/blogs/assets/images/blog/nvidia-gpu-memory.png)
+
+
+
 
