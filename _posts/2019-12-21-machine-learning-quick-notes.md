@@ -347,10 +347,17 @@ where $w_{i,j}$ is the tf-idf weight for token $i$ in document $j$, $t_{i,j}$ is
 However other ways of defining the term frequency and the document frequency exist, for example, normalization, smoothing, etc. 
 
 
+# Convolutional neural networks
 
+To compute the output width (resp. height) of a 2D convolutional layer, suppose the kernel size $F$, the stride $S$, the amount of zero padding $P$, the input width (resp. height) $I$, the output width (resp. height) $O$: 
 
+$$O = \frac{(I - F + 2P)}{S} + 1$$
 
+To compute the output width (resp. height) of a 2D pooling layer, suppose the kernel size $F$, the stride $S$, the input width (resp. height) $I$, the output width (resp. height) $O$: 
 
+$$O = \frac{I - F}{S} + 1$$
+
+A 2D convolutional layer with $F=3, P=1, S=1$ will not change the width (resp. height): $O=I$, a 2D pooling layer with $F=2, S=2$ will produce $O = \frac{I}{2}$ (without remainder).
 
 
 # References
