@@ -136,5 +136,11 @@ GPU Memory Quantity:
 ![nvidia-gpu-memory.png](/blogs/assets/images/blog/nvidia-gpu-memory.png)
 
 
-
+Estimated price on Google Cloud Platform:
+* Tesla T4: $0.28 hourly
+* Tesla K80: $0.35 hourly
+* Tesla P4: $0.45 hourly
+* Tesla P100: $1.06 hourly
+* Tesla V100: $1.77 hourly
+* Tesla A100: $2.79 hourly
 
