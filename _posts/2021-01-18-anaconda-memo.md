@@ -102,6 +102,24 @@ conda env remove --name env_name
 ```
 
 
+# Installing python packages
+
+
+```bash
+conda install [PackageName]
+```
+
+If you encounter the error `PackagesNotFoundError: The following packages are not available from current channels`, do the following: 
+
+```bash
+conda config --append channels conda-forge
+```
+
+`conda-forge` is a GitHub organization containing repositories of conda recipes. Thanks to some awesome continuous integration providers, each repository automatically builds its own recipe in a clean and repeatable way on Windows, Linux and OSX.
+
+If a package cannot be easily installed with `pip` because of issues with system libraries (e.g. version of `gcc`), a possible solution is to install the package with `conda`, which is less dependent on system libraries. 
+
+
 # Troubleshooter
 
 * "Collecting package metadata" cannot proceed and never end #9221 [https://github.com/conda/conda/issues/9221](https://github.com/conda/conda/issues/9221)
@@ -113,7 +131,6 @@ conda env remove --name env_name
 
 * https://kapeli.com/cheat_sheets/Conda.docset/Contents/Resources/Documents/index 
 * https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment 
-
 
 
 
