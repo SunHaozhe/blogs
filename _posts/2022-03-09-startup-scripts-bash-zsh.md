@@ -72,14 +72,44 @@ When Bash is invoked as an interactive non-login shell, it reads and executes co
 
 # Zsh
 
-Zsh always executes `zshenv`. Then, depending on the case:
+Zsh always executes `~/.zshenv`. Then, depending on the case:
 
-* run as a login shell, it executes `zprofile`
-* run as an interactive, it executes `zshrc`
-* run as a login shell, it executes `zlogin`
+* run as a login shell, it executes `~/.zprofile`
+* run as an interactive, it executes `~/.zshrc`
+* run as a login shell, it executes `~/.zlogin`
 
 
 ![zsh_startup_scripts_summary.png](/blogs/assets/images/blog/zsh_startup_scripts_summary.png)
+
+
+In my case (MacOS), `~/.zshenv`, `~/.zprofile`, `~/.zlogin` do not exist. `~/.zshrc` looked like this: 
+
+```zsh
+PATH=/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/sun-haozhe/anaconda/bin:/opt/local/bin:/opt/local/sbin
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/sun-haozhe/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/sun-haozhe/anaconda/etc/profile.d/conda.sh" ]; then
+        . "/Users/sun-haozhe/anaconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/sun-haozhe/anaconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+```
+
+However after upgrading MacOS to Monterey (or Big Sur), the code that involved conda takes a lot of time to execute: each time a new terminal is opened, it gets stuck and its header shows that `python` is executing. This usually takes several seconds (at least) to get finished. Otherwise one needs to type the Return key on the keyboard to get out of this. In order to avoid this stucking behavior, `~/.zshrc` is modified to be:
+
+```zsh
+PATH=/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/sun-haozhe/anaconda/bin:/opt/local/bin:/opt/local/sbin
+```
+
+
 
 # Types of shell: interactive and login shells
 
@@ -99,7 +129,6 @@ Zsh always executes `zshenv`. Then, depending on the case:
 * https://youngstone89.medium.com/unix-introduction-bash-startup-files-loading-order-562543ac12e9
 * https://linuxize.com/post/bashrc-vs-bash-profile/#:~:text=bash_profile%20is%20read%20and%20executed,customizing%20the%20%24PATH%20environment%20variable%20.
 * https://tanguy.ortolo.eu/blog/article25/shrc#:~:text=Both%20Bash%20and%20Zsh%20use,for%20interactive%20or%20login%20shells.
-
 
 
 
