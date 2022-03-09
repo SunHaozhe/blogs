@@ -264,6 +264,10 @@ Run docker which uses cuda GPU
 docker run -dit --gpus all [imageName] bash
 ```
 
+If you use `DataLoader` of PyTorch with `num_workers` greater than `0` in a docker container, you probably need to raise the shared memory limit by using `--shm-size=2gb` or `--ipc=host` or `-v /dev/shm:/dev/shm` for `docker run`.
+
+
+
 # The command: docker commit 
 
 `docker commit` creates a new image from a container's changes. The commit operation will not include any data contained in volumes mounted inside the container. By default, the container being committed and its processes will be paused while the image is committed. This reduces the likelihood of encountering data corruption during the process of creating the commit. If this behavior is undesired, set the `--pause` option to false.
@@ -368,16 +372,65 @@ docker exec -it my_env bash
     * Use the flag `--ipc=host` when executing `docker run ...`, be careful of [potential security issues](https://stackoverflow.com/questions/38907708/docker-ipc-host-and-security).
 
 
+# Shared memory
+
+### Background
+
+Shared memory is memory that may be simultaneously accessed by multiple programs with an intent to provide communication among them or avoid redundant copies. Shared memory is an efficient means of passing data between programs. Depending on context, programs may run on a single processor or on multiple separate processors. Using memory for communication inside a single program, e.g. among its multiple threads, is also referred to as shared memory. 
+
+The shared memory device, `/dev/shm`, provides a temporary file storage filesystem using RAM for storing files. It’s not mandatory to have /dev/shm, although it’s probably desirable since it facilitates inter-process communication (IPC). Why would you use `/dev/shm` instead of just stashing a temporary file under `/tmp`? Well, `/dev/shm` exists in RAM (so it’s fast), whereas `/tmp` resides on disk (so it’s relatively slow). The shared memory behaves just like a normal file system, but it’s all in RAM. 
+
+In order to see how big it is in `/dev/shm`:
+
+```bash
+df -h
+```
+
+In order to check what’s currently under `/dev/shm`:
+
+```bash
+ls -l /dev/shm
+
+# you may get: total 0
+# which means there is currently nothing there
+```
 
 
+### Shared memory for Docker containers
+
+Docker containers are allocated 64 MB of shared memory **by default**.
+
+We can change the amount of shared memory allocated to a container by using the `--shm-size` option of `docker run`:
+
+```bash
+# 2 GB shared memory
+docker run --shm-size=2gb ...
+```
+
+Unit can be `b` (bytes), `k` (kilobytes), `m` (megabytes), or `g` (gigabytes). If you omit the unit, the system uses bytes.
+
+Note that in the above example, the container is getting its own `/dev/shm`, separate from that of the host.
+
+What about sharing memory between the host and a container or between containers? This can be done by mounting `/dev/shm`:
+
+```bash
+docker run -v /dev/shm:/dev/shm ...
+```
+
+The option `--ipc=host`can be used instead of specifying `--shm-size=XXX`. `--shm-size=XXX` would be enough, but you'd need to set shared memory size that's enough for your workload. `--ipc=host` sets shared memory to the same value it has on bare metal. However, `--ipc=host` may have some security concerns, `--ipc=host` removes a layer of security and creates new attack vectors as any application running on the host that misbehaves when presented with malicious data in shared memory segments can become a potential attack vector. 
 
 
+If you use `DataLoader` of PyTorch with `num_workers` greater than `0` in a docker container, you probably need to raise the shared memory limit because the default is only 64 MB: 
+
+`RuntimeError: DataLoader worker (pid 585) is killed by signal: Bus error. It is possible that dataloader's workers are out of shared memory. Please try to raise your shared memory limit.`
 
 
 # References 
 
 * http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html
 * https://docs.docker.com/engine/reference/commandline/docker/ 
+* https://datawookie.dev/blog/2021/11/shared-memory-docker/#:~:text=Docker%20containers%20are%20allocated%2064%20MB%20of%20shared%20memory%20by%20default.
+* https://github.com/pytorch/pytorch/issues/1158
 
 
 
