@@ -162,8 +162,8 @@ When the 4 digits number is used, the first digit is used for something else. We
 
 `chmod` changes the file mode (permission) bits of each given file according to mode, which can be either a symbolic representation of changes to make, or an octal number representing the bit pattern for the new mode bits.
 
-```
--R, --recursive
+```bash
+ -R, --recursive
 ```
 
 
@@ -180,16 +180,23 @@ When the 4 digits number is used, the first digit is used for something else. We
 * If the colon and group are given, but the owner is omitted, only the group of the files is changed; in this case, chown performs the same function as `chgrp`. 
 * If only a colon is given, or if the entire operand is empty, neither the owner nor the group is changed.
 
+```bash
+ -R, --recursive
 ```
--R, --recursive
+
+```bash
+chown owner-user file 
+chown owner-user:owner-group file
+chown -R owner-user:owner-group directory
+chown options owner-user:owner-group file
 ```
+
 
 To change the group ownership of a file/directory `Target` to the group `GroupA`
 
 ```bash
 chgrp -R project_name file_or_directory
 ```
-
 
 
 
