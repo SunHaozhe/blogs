@@ -268,6 +268,8 @@ If you use `DataLoader` of PyTorch with `num_workers` greater than `0` in a dock
 
 
 
+
+
 # The command: docker commit 
 
 `docker commit` creates a new image from a container's changes. The commit operation will not include any data contained in volumes mounted inside the container. By default, the container being committed and its processes will be paused while the image is committed. This reduces the likelihood of encountering data corruption during the process of creating the commit. If this behavior is undesired, set the `--pause` option to false.
@@ -370,6 +372,7 @@ docker exec -it my_env bash
   * Two possibilities:
     * Set `num-workers` to `0` (according to the doc of PyTorch `torch.utils.data DataLoade`, but this will slow down training)
     * Use the flag `--ipc=host` when executing `docker run ...`, be careful of [potential security issues](https://stackoverflow.com/questions/38907708/docker-ipc-host-and-security).
+  * If you got a `Killed` message within a docker container, it probably means that you don't have enough memory/RAM (use the command `free -h` to check the amount of available memory). Either increase the amount of memory of the host machine, or increase the amount of memory docker is allowed to use. 
 
 
 # Shared memory
