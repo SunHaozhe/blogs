@@ -271,6 +271,8 @@ This solution automatically generate column names as `Column1`, `Column2`, etc. 
 \href{URL}{Text}
 ```
 
+If the `Text` part also contains an URL, you may want to use `\url{}` for that part. Otherwise you may get the error `Missing $ inserted` if your URL contains symbols like `_`. However, don't use `\url{}` for the URL part (the first part) of `\href{}{}`, otherwise you will get fatal compilation error. 
+
 
 # Multi-line (block) comments 
 
