@@ -109,6 +109,11 @@ However after upgrading MacOS to Monterey (or Big Sur), the code that involved c
 PATH=/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/sun-haozhe/anaconda/bin:/opt/local/bin:/opt/local/sbin
 ```
 
+With the upgrade of MacOS to Monterey (or Big Sur), the default python installation seems to be broken (`/Library/Frameworks/Python.framework/Versions/3.6/bin`). So I further change the order of paths to put that in the end of the paths in order to better avoid such issues. I also added `/Users/sun-haozhe/my_virtualenv_python/venv_py38/bin` in the beginning of the paths, because `python` and `jupyter` found there seem to work well.
+
+```zsh
+PATH=/Users/sun-haozhe/my_virtualenv_python/venv_py38/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/sun-haozhe/anaconda/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.6/bin
+```
 
 
 # Types of shell: interactive and login shells
