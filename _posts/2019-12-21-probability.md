@@ -152,6 +152,52 @@ Variance: $\frac{1-p}{p^2}$
 
 
 
+# Laws
+
+
+## Law of total probability
+
+Also known as:
+* 全概率定理
+
+
+![law_of_total_probability.png](/blogs/assets/images/blog/law_of_total_probability.png)
+
+
+## Law of total expectation
+
+Also known as:
+* 全期望值定理
+* law of iterated expectations
+* tower rule
+* Adam’s law
+* smoothing theorem
+* 双重期望值定理
+* 重叠期望值定理
+
+
+If $X$ is a random variable whose expected value $\mathbb{E}[X]$ is defined, and $Y$ is any random variable on the same probability space, then
+
+$$\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X | Y]]$$
+
+i.e., the expected value of the conditional expectation of $X$ given $Y$ is the same as the expected value of $X$.
+
+
+## Law of total variance
+
+
+Also known as:
+
+* variance decomposition formula
+* conditional variance formulas
+* law of iterated variances
+* Eve's law
+
+If $X$ and $Y$ are random variables on the same probability space, and the variance of $Y$ is finite, then
+
+$$\mathbb{Var}[Y] = \mathbb{E}[\mathbb{Var}[Y | X]] + \mathbb{Var}[\mathbb{E}[Y | X]]$$
+
+For statisticians, the two terms are the "unexplained" and the "explained" components of the variance respectively. These two components are also the source of the term "Eve's law", from the initials EV VE for "expectation of variance" and "variance of expectation".
 
 
 
