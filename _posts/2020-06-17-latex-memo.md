@@ -22,13 +22,13 @@ published: true
 \newcommand{\etal}{{\em ~et al.}}
 ```
 
-```
-\newcommand{\eg}{{\em e.g.,~}}
-\newcommand{\ie}{{\em i.e.,~}}
-\newcommand{\vs}{{\em vs.~}}
-\renewcommand{\iff}{{\em iff~}}
-\newcommand{\iid}{{\em i.i.d.}}
-\newcommand{\etal}{{\em ~et al.}}
+```latex
+\newcommand{\eg}\{\{\em e.g.,~\}\}
+\newcommand{\ie}\{\{\em i.e.,~\}\}
+\newcommand{\vs}\{\{\em vs.~\}\}
+\renewcommand{\iff}\{\{\em iff~\}\}
+\newcommand{\iid}\{\{\em i.i.d.\}\}
+\newcommand{\etal}\{\{\em ~et al.\}\}
 ```
 
 
