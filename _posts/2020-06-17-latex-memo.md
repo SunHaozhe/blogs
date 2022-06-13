@@ -14,26 +14,19 @@ published: true
 # e.g. i.e., etc. 
 
 ```latex
+
+{% raw % }
+
 \newcommand{\eg}{{\em e.g.,~}}
 \newcommand{\ie}{{\em i.e.,~}}
 \newcommand{\vs}{{\em vs.~}}
 \renewcommand{\iff}{{\em iff~}}
 \newcommand{\iid}{{\em i.i.d.}}
 \newcommand{\etal}{{\em ~et al.}}
+
+{% endraw % }
+
 ```
-
-
-\newcommand{\eg}{{\em e.g.,~}}
-
-\newcommand{\ie}{{\em i.e.,~}}
-
-\newcommand{\vs}{{\em vs.~}}
-
-\renewcommand{\iff}{{\em iff~}}
-
-\newcommand{\iid}{{\em i.i.d.}}
-
-\newcommand{\etal}{{\em ~et al.}}
 
 
 

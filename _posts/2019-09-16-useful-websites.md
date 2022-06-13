@@ -273,9 +273,14 @@ https://blog.csdn.net/xiaoduanayu/article/details/105779245
 
 **************************************************************************************************
 
+Curly Braces in Markdown with Jekyll
 
 
 
+https://www.tomordonez.com/curly-braces-markdown-jekyll/ 
+
+
+**************************************************************************************************
 
 
 
