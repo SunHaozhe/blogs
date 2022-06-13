@@ -15,7 +15,7 @@ published: true
 
 ```latex
 
-{% raw % }
+{% raw %}
 
 \newcommand{\eg}{{\em e.g.,~}}
 \newcommand{\ie}{{\em i.e.,~}}
@@ -24,7 +24,7 @@ published: true
 \newcommand{\iid}{{\em i.i.d.}}
 \newcommand{\etal}{{\em ~et al.}}
 
-{% endraw % }
+{% endraw %}
 
 ```
 
