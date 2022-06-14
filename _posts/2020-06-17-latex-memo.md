@@ -10,24 +10,50 @@ comments: true
 published: true
 ---
 
+# summary of header
+
+
+
+# references
+
+```latex
+% in the header
+\bibliographystyle{plain}
+```
+
+```latex
+{
+\small
+\bibliography{refs}
+}
+```
 
 # e.g. i.e., etc. 
 
 ```latex
-
 {% raw %}
-
 \newcommand{\eg}{{\em e.g.,~}}
 \newcommand{\ie}{{\em i.e.,~}}
 \newcommand{\vs}{{\em vs.~}}
 \renewcommand{\iff}{{\em iff~}}
 \newcommand{\iid}{{\em i.i.d.}}
 \newcommand{\etal}{{\em ~et al.}}
-
 {% endraw %}
-
 ```
 
+
+# Appendix
+
+```latex
+% in the header
+\usepackage{appendix}
+```
+
+
+```latex
+% in the main text
+\appendix
+```
 
 
 # Line spacing and margins 
