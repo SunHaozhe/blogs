@@ -10,8 +10,46 @@ comments: true
 published: true
 ---
 
-# summary of header
+# how to write the header (all in one)
 
+```latex
+{% raw %}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{float}
+
+\usepackage{appendix}
+
+\usepackage{makecell}
+
+% bold table headers, maybe optional  
+\renewcommand\theadfont{\bf} 
+
+
+% hyperlinks
+\usepackage{hyperref}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{amsthm}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\newcommand{\eg}{{\em e.g.,~}}
+\newcommand{\ie}{{\em i.e.,~}}
+\newcommand{\vs}{{\em vs.~}}
+\renewcommand{\iff}{{\em iff~}}
+\newcommand{\iid}{{\em i.i.d.}}
+\newcommand{\etal}{{\em ~et al.}}
+
+% references
+\bibliographystyle{plain}
+{% endraw %}
+```
 
 
 # references
