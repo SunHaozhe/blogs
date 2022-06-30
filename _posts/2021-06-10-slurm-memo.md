@@ -102,6 +102,47 @@ Job array:
 #SBATCH --error=logs/%A_%a.stderr
 ```
 
+```bash
+# Main work starts
+
+args=()
+
+for SEED in "21" "31" "41"
+do
+	for MODEL in "xxx" "yyy"
+	do
+		for WD in "0" "0.01" "0.1"
+		do
+			for LR in "0.001" "0.01"
+			do
+				args+=("blabla.py --model_name ${MODEL} --random_seed ${SEED} --num_workers 8 --lr ${LR} --weight_decay ${WD}")
+			done
+		done 
+	done
+done
+
+echo "Starting python ${args[${SLURM_ARRAY_TASK_ID}]}"
+
+srun python ${args[${SLURM_ARRAY_TASK_ID}]}
+
+echo "End python ${args[${SLURM_ARRAY_TASK_ID}]}"
+
+# Main work ends
+```
+
+
+How to choose nodes (suppose that we want to use nodes 51, 52, 53, 54, 55, 101, 102, we do not want to use nodes 1, 2, 3, 4, 5):
+
+```bash
+#SBATCH --exclude=n[1-5]
+```
+
+Or equivalently, 
+
+```bash
+#SBATCH --nodelist=n[51-55,101-102]	
+```
+
 
 # Advanced
 
