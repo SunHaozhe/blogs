@@ -428,12 +428,24 @@ If you use `DataLoader` of PyTorch with `num_workers` greater than `0` in a dock
 `RuntimeError: DataLoader worker (pid 585) is killed by signal: Bus error. It is possible that dataloader's workers are out of shared memory. Please try to raise your shared memory limit.`
 
 
+If you still get erros like `RuntimeError: DataLoader worker (pid 4161) is killed by signal: Killed. segmentation faults` even though:
+
+* you already set `--ipc=host` 
+* your shared memory (type `df -h` in docker container) is as big as 15G or even 40G+
+* you even tried to use 1 for the batch size...
+* your code run perfectly with `num_workers=0` but breaks when it becomes larger than 0 (even with `num_workers=1`)
+
+Then you can possibly solve this issue by simplifying the `__getitem__()` method of your custorm PyTorch dataset class. By simplifying, I mean you make the code in `__getitem__()` as simple as possible. For example, you'd better avoid using `pandas` `DataFrame` in `__getitem__()` for a reason that I did not understand. If originally your `__getitem__()` maps `idx` to `img_path` using a `pd.DataFrame`, then you'd better create a python list `items` which stores the same information in PyTorch dataset's `__init__` stage, then `__getitem__()` will only call the list `items`, it will never call `pd.DataFrame`. If this can still not solve the issue, then maybe try to increase the host's total memory or simplify the data augmentation techniques used in the `__getitem__()`.... I tried to reduce the amount of compute related to data augmentation and dataset loading before the training loop begins (outside `__getitem__()` because outside the training loop which involves dataloader multiprocessing), but mysteriously this solved the issue, no clue of why this happened...
+
+
+
 # References 
 
 * http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html
 * https://docs.docker.com/engine/reference/commandline/docker/ 
 * https://datawookie.dev/blog/2021/11/shared-memory-docker/#:~:text=Docker%20containers%20are%20allocated%2064%20MB%20of%20shared%20memory%20by%20default.
 * https://github.com/pytorch/pytorch/issues/1158
+* https://github.com/pytorch/pytorch/issues/8976#issuecomment-401564899
 
 
 
