@@ -438,6 +438,15 @@ If you still get erros like `RuntimeError: DataLoader worker (pid 4161) is kille
 Then you can possibly solve this issue by simplifying the `__getitem__()` method of your custorm PyTorch dataset class. By simplifying, I mean you make the code in `__getitem__()` as simple as possible. For example, you'd better avoid using `pandas` `DataFrame` in `__getitem__()` for a reason that I did not understand. If originally your `__getitem__()` maps `idx` to `img_path` using a `pd.DataFrame`, then you'd better create a python list `items` which stores the same information in PyTorch dataset's `__init__` stage, then `__getitem__()` will only call the list `items`, it will never call `pd.DataFrame`. If this can still not solve the issue, then maybe try to increase the host's total memory or simplify the data augmentation techniques used in the `__getitem__()`.... I tried to reduce the amount of compute related to data augmentation and dataset loading before the training loop begins (outside `__getitem__()` because outside the training loop which involves dataloader multiprocessing), but mysteriously this solved the issue, no clue of why this happened...
 
 
+Some other clues:
+
+* import torch before sklearn
+* upgrade sklearn to the latest version
+* moving import pytorch before other imports
+* reduce input image size
+* the data you read and the python environment should be on the same mount. In his specific case, the python environment was in my home directory (which resides in some remote mount, to be shared across multiple compute nodes) and the data local to the compute node. After moving everything to be local with respect to the compute node, segfault went away.
+* Just removed all the pandas logic out of one of my projects and still encounter the issue. Have a feeling it might be more related to cv2 (or modifying images with numpy operations rather than PIL operations). Oh I see. It's definitely cv2. It is known to be not nice with multiprocessing. Sorry I just did a quick glance at the imports and didn't see any cv2. Ok I removed usage of cv2, but it still seems to be happening. Now debating whether it is random or scipy.ndimage related. That's rather weird. What's more puzzling is that Python is segfaulting, not cv2 or pytorch libraries. Could you try a different python version? I upgraded to python 3.6 from 2.7. Seems to have worked. Thanks.
+
 
 # References 
 
@@ -446,6 +455,7 @@ Then you can possibly solve this issue by simplifying the `__getitem__()` method
 * https://datawookie.dev/blog/2021/11/shared-memory-docker/#:~:text=Docker%20containers%20are%20allocated%2064%20MB%20of%20shared%20memory%20by%20default.
 * https://github.com/pytorch/pytorch/issues/1158
 * https://github.com/pytorch/pytorch/issues/8976#issuecomment-401564899
+* https://github.com/pytorch/pytorch/issues/4969
 
 
 
