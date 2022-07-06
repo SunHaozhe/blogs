@@ -102,6 +102,16 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 ```
 
+In order to be able to import modules from packages in the parent directory:
+
+```python
+import os
+import sys
+
+# in order to be able to import modules from packages in the parent directory
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+```
+
 Gets a list of all base names (does not distinguish subdirectories and files) in the current directory:
 
 ```python
