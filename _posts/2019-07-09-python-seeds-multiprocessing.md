@@ -592,3 +592,55 @@ import torch.multiprocessing as mp
 mp.set_start_method('spawn') 
 ```
 
+*************************************************************************************************************************************
+
+
+Pytorch中多个进程加载随机样本Dataloader解决方法（2022年7月16日更新）：
+
+
+[知乎 可能95%的人还在犯的PyTorch错误](https://zhuanlan.zhihu.com/p/523239005)
+
+这个bug的出现需要满足以下两个条件：
+
+* PyTorch版本 < 1.9。PyTorch < 1.9: `torch`和`random`库产生随机数没有问题，`numpy`有问题。PyTorch >= 1.9: 官方修复以后，大家都没问题。
+* 在Dataset的 `__getitem__` 方法中使用了Numpy的随机数
+
+
+
+
+`DataLoader` 的构造函数有一个可选参数 `worker_init_fn`。在加载数据之前，每个子进程都会先调用此函数。我们可以在 `worker_init_fn` 中设置NumPy的种子。还有一个要注意的点就是: 在默认情况下，每个子进程在epoch结束时被杀死，所有的进程资源都将丢失。在开始新的epoch时，主进程中的随机状态没有改变，用于再次初始化各个子进程，所以子进程的随机数种子和上个epoch完全相同。因此我们需要设置一个会随着epoch数目改变而改变的随机数，但是这个在实际应用中很难实现，因为在 `worker_init_fn` 中无法得知当前是第几个epoch。幸运的是，`torch.initial_seed()` 可以满足我们的需求。这个其实也是PyTorch官方的推荐作法: [https://pytorch.org/docs/stable/notes/randomness.html#dataloader](https://pytorch.org/docs/stable/notes/randomness.html#dataloader)
+
+为什么`torch.initial_seed()`可以？
+
+* 在子进程中运行`torch.initial_seed()`，返回的就是 `torch` 当前的随机数种子，即 `base_seed + worker_id`。因为每个`epoch`开始时，主进程都会重新生成一个 `base_seed`，所以 `base_seed`是随`epoch`变化而变化的随机数。 此外，`torch.initial_seed()`返回的是 `long int` 类型，而Numpy只接受 `uint` 类型（`[0, 2**32 - 1]）`，所以需要对 `2**32` 取模。
+* 如果我们用 `torch` 或者 `random` 生成随机数，而不是 `numpy`，就不用担心会遇到这个问题，因为PyTorch已经把 `torch` 和 `random` 的随机数设置为了 `base_seed + worker_id`。
+
+
+```python
+def worker_init_fn(worker_id):
+    worker_seed = torch.initial_seed() % 2**32
+    np.random.seed(worker_seed)
+    random.seed(worker_seed)
+
+DataLoader(
+    train_dataset,
+    batch_size=batch_size,
+    num_workers=num_workers,
+    worker_init_fn=worker_init_fn
+)
+```
+
+
+
+[知乎 可能95%的人还在犯的PyTorch错误](https://zhuanlan.zhihu.com/p/523239005)的评论精选:
+
+* 有一个人说: "用random numpy还会有锁死的问题"。他收到另一个网友的回复是: "卧槽，虽然还没实验，这句话解决了一个困扰我两年的问题！我应该就是numpy random导致死锁，worker设为0就没事。一直以为是pytorch的bug"
+* 有一个人说: "之前遇到过，在子进程里面改用 `np.random.default_rng` 来获取随机数了"
+* 有一个人说: "不过感觉只重复augment部分的随机数，本质上还是枚举了所有可能的数据增强，所以即使对性能有影响，也比较有限吧？" 我其实也有类似的想法，不过不确定。
+
+
+
+
+
+
+
