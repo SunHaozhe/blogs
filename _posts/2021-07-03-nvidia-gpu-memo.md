@@ -121,7 +121,7 @@ This problem is not solved.
 
 
 
-Tesla V100 is the fastest NVIDIA GPU available on the market. V100 is 3x faster than P100. 
+Tesla V100 is the fastest NVIDIA GPU available on the market (however, A100 seems to be even faster than V100). V100 is 3x faster than P100. 
 
 FP64 64-bit (Double Precision) Floating Point Calculations:
 
@@ -143,4 +143,18 @@ Estimated price on Google Cloud Platform:
 * Tesla P100: $1.06 hourly
 * Tesla V100: $1.77 hourly
 * Tesla A100: $2.79 hourly
+
+
+GPU memory:
+* GeForce RTX 2080 Ti: 11 GB 
+* Tesla T4: 16 GB
+* K80: 24 GB
+* Tesla P4: 8 GB 
+* P100: 12 GB or 16 GB
+* V100: 16 or 32 GB
+* A100: 40 GB or 80 GB
+
+
+
+
 
