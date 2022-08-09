@@ -151,3 +151,18 @@ Changing the maximum number of simultaneously running tasks for a running array 
 ```bash
 scontrol update JobId=<jobID> ArrayTaskThrottle=<count>
 ```
+
+Change the list of excluded nodes:
+
+```bash
+# Value may be cleared with blank data value, "ExcNodeList="
+scontrol update JobId=<jobID> ExcNodeList=
+
+# Multiple node names may be specified using simple node range expressions (e.g. "n[1-5]")
+scontrol update JobId=<jobID> ExcNodeList=n[1-5]
+```
+
+
+
+
+
