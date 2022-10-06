@@ -96,8 +96,12 @@ Just use the usual way: `\bibliography{main}`, you don't need to replace that wi
 
 
 
+# How to clean comments before submitting to arXiv?
+
+arXiv LaTeX Cleaner from Google: [https://github.com/google-research/arxiv-latex-cleaner](https://github.com/google-research/arxiv-latex-cleaner)
 
 
+Delete all lines beginning with a % from a file: [https://stackoverflow.com/a/8206295/7636942](https://stackoverflow.com/a/8206295/7636942)
 
 
 
