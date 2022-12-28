@@ -116,6 +116,22 @@ PATH=/Users/sun-haozhe/my_virtualenv_python/venv_py38/bin:/usr/local/bin:/usr/bi
 ```
 
 
+Update from 2022.12.28: 
+
+
+On MacOS Monterey Version 12.6 (21G115), when I typed `virtualenv`, it gave an error `/System/Library/dyld/dyld_shared_cache_x86_64h' ...`. This [StackOverflow post](https://stackoverflow.com/a/65895716/7636942) suggests removing `/Library/Frameworks/Python.framework/Versions/3.6` from the PATH environment variable. I did it. My PATH environment variable now becomes:
+
+
+```zsh
+PATH=/Users/sun-haozhe/my_virtualenv_python/venv_py38/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/sun-haozhe/anaconda/bin:/opt/local/bin:/opt/local/sbin
+```
+
+
+Then when I typed `virtualenv`, it returns `virtualenv command not found`. So I did `pip install virtualenv` in the virtual environment `venv_py38`, then `virtualenv` works. 
+
+
+
+
 # Types of shell: interactive and login shells
 
 * Basically, the shell is just there to take a list of commands and run them; it doesn't really care whether the commands are in a file, or typed in at the terminal. In the second case, when you are typing at a prompt and waiting for each command to run, the shell is **interactive**; in the other case, when the shell is reading commands from a file, it is, consequently, **non-interactive**.
