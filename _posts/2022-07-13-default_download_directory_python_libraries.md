@@ -22,7 +22,14 @@ published: true
 ```
 
 
+# transformers (Hugging Face)
 
+```
+~/.cache/huggingface/hub
+
+
+/Users/sun-haozhe/.cache/huggingface/hub
+```
 
 
 
