@@ -32,7 +32,14 @@ published: true
 ```
 
 
+# datasets (Hugging Face)
 
+```
+~/.cache/huggingface/datasets
+
+
+/Users/sun-haozhe/.cache/huggingface/datasets
+```
 
 
 
