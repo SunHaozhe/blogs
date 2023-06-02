@@ -53,7 +53,6 @@ It is a form of logical inference that seeks the simplest and most likely conclu
 Abductive reasoning, or argument to the best explanation, is a form of reasoning that doesn't fit in deductive or inductive, since it starts with incomplete set of observations and proceeds with likely possible explanations so the conclusion in an abductive argument does not follow with certainty from its premises and concerns something unobserved. What distinguishes abduction from the other forms of reasoning is an attempt to favour one conclusion above others, by subjective judgement or attempting to falsify alternative explanations or by demonstrating the likelihood of the favoured conclusion, given a set of more or less disputable assumptions. For example, when a patient displays certain symptoms, there might be various possible causes, but one of these is preferred above others as being more probable.
 
 
-# Fallacious reasoning, 
 
 
 
