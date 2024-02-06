@@ -215,6 +215,15 @@ C++ two approaches
 **************************************************************************
 
 
+# 399. Evaluate Division
+
+Python: weighted Union Find & BFS
+
+[https://leetcode.com/problems/evaluate-division/solutions/4688642/python-weighted-union-find-bfs/](https://leetcode.com/problems/evaluate-division/solutions/4688642/python-weighted-union-find-bfs/)
+
+
+
+**************************************************************************
 
 
 
