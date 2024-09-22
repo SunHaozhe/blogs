@@ -161,7 +161,7 @@ $$\nabla_\theta \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2 + \frac{\lambd
 
 The most general definition of the coefficient of determination is
 
-$$R^2 = 1 - \frac{\text{residual sum of squares}}{\text{total sum of squares}} = 1 - \frac{\text{残差平方和}}{\text{总平方和}} = 1 - \frac{\sum_i (y_i - f_i)^2}{\sum_i (y_i - \overline{y})^2}$$
+$$R^2 = 1 - \frac{\text{residual sum of squares}}{\text{total sum of squares}} = 1 - \frac{\text{残差平方和}}{\text{总平方和}} = 1 - \frac{\sum_i (y_i - f_i)^2}{\sum_i (y_i - \overline{y})^2} = 1 - \frac{\frac{1}{n} \sum_i (y_i - f_i)^2}{\frac{1}{n} \sum_i (y_i - \overline{y})^2} = 1 - \frac{\text{mean squared error}}{\text{variance}}$$ 
 
 where
 
@@ -172,7 +172,7 @@ $y_1$, $y_2$, ..., $y_n$ denotes the $n$ target variables, $f_1$, $f_2$, ..., $f
 
 Values of $R^2$ outside the range $0$ to $1$ can occur when the model fits the data worse than a horizontal hyperplane. 
 
-$R^2$ (R squared) can be interpreted as the proportion of the variance in the target variable (label) that is predictable from the features. 
+$R^2$ (R squared) can be interpreted as the proportion of the variance in the target variable (label) that is predictable from the features. It is $1$ minus the "normalized" mean squared error (normalized by the variance of the target/label variables). 
 
 
 # Logistic regression 
