@@ -42,9 +42,9 @@ conda update anaconda
 Get a list of all my Anaconda environments 
 
 ```zsh
-conda info --envs
-
 conda env list
+
+conda info --envs
 
 # The above two commands are equivalent
 ```
@@ -59,6 +59,8 @@ Create an Anaconda environment with a specific version of Python
 
 ```zsh
 conda create -n env_name python=3.6
+
+conda create --name env_name python=3.9
 ```
 
 Create an Anaconda environment with a specific package

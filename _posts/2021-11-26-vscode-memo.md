@@ -18,6 +18,7 @@ published: true
 * `Ctrl/Cmd`+`J` shows and hides the Panel (bottom part, i.e. problems, terminal, Jupyter variables, etc.), no matter which one you are focused on. 
 * `Ctrl/Cmd`+`B` shows and hides the left-hand bar no matter whether Explorer, Debug etc. is active.
 * `Ctrl` + `Tab` (even in MacOS, use `Ctrl`, not `Cmd`) changes tabs in order of most recently used.
+* `Cmd` + `/` adds or removes per-line comment for multiple lines (ToggleLineComment)
 
 
 ![vscode_go_back_go_forward.png](/blogs/assets/images/blog/vscode_go_back_go_forward.png)
