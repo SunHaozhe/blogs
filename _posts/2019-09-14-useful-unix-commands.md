@@ -183,6 +183,31 @@ ls [name_of_directory] | grep [pattern]
 ```
 
 
+Search the occurences of some text in all files in a folder.
+
+```bash
+grep -rl "blabla" [folder_path]
+```
+
+`grep` 是一个在文件中搜索文本的命令。
+`-r` 选项表示递归搜索子目录。
+`-l` 选项表示只列出包含匹配文本的文件名。
+`"blabla"` 是要搜索的特定单词。
+`[folder_path]` 是你要搜索的目录的路径。
+
+如果你要在当前目录及其子目录中搜索,
+
+```bash
+grep -rl "blabla" .
+```
+
+`--include="*.py"` 选项表示只搜索扩展名为 `.py` 的文件。
+
+```bash
+grep -rl --include="*.py" "blabla" [folder_path]
+```
+
+
 ************************************************************************************************
 
 
