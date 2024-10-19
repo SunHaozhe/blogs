@@ -72,6 +72,13 @@ conda create -n env_name scipy
 conda create -n env_name scipy=0.15.0
 ```
 
+Create an Anaconda environment from an existing environment (fork / branch)
+
+```zsh
+conda create --clone <existing enviroment> -n <new environment>
+```
+
+
 Create an Anaconda environment from an `environment.yml` file
 
 ```zsh
@@ -79,6 +86,12 @@ conda env create -f environment.yml
 
 # The first line of the yml file sets 
 # the new environment's name.
+```
+
+Copy the Anaconda environment into an `environment.yml` file
+
+```zsh
+conda env export > environment.yml
 ```
 
 In order to create an Anaconda environment file manually, see [https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)
