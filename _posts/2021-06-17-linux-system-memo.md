@@ -113,7 +113,7 @@ In Linux, access to the files is controlled by the operating system using file p
 * Others (everybody else)
 
 
-There are three file permissions types that apply to each user class and allows you to specify which users are allowed to read the file, write to the file, or execute the file. The same permission attributes apply for both files and directories with a different meaning:
+There are three file permission types that apply to each user class. You can specify which users are allowed to read the file, write to the file, or execute the file. The same permission attributes apply for both files and directories with a different meaning:
 
 * **The read permission** The file is readable. For example, when the read permission is set, the user can open the file in a text editor. The directory’s contents can be viewed. The user can list files inside the directory with the `ls` command.
 * **The write permission** The file can be changed or modified. The directory’s contents can be altered. The user can create new files , delete existing files , move files , rename files ..etc.
@@ -140,14 +140,14 @@ ls -l filename.txt
 
 The first character shows the file type. It can be a regular file `-`, directory `d`, a symbolic link `l`, or any other special type of file. The next nine characters represent the file permissions, three triplets of three characters each. The first triplet shows the owner permissions, the second one group permissions, and the last triplet shows everybody else permissions.
 
-File permission can be represented in a numeric or symbolic format. The permission number can consist of three or four digits, ranging from 0 to 7. When 3 digits number is used, the first digit represents the permissions of the file’s owner, the second one the file’s group and the last one all other users. 
+File permission can be represented in a numeric or symbolic format. The permission number can consist of three or four digits, ranging from 0 to 7. When 3-digit number is used, the first digit represents the permissions of the file’s owner, the second one the file’s group and the last one all other users. 
 
 * r (read) = 4
 * w (write) = 2
 * x (execute) = 1
 * no permissions = 0
 
-The permissions digit of a specific user class is the sum of the values of the permissions for that class. Each digit of the permissions number may be a sum of 4, 2, 1 and 0:
+The permission digit of a specific user class is the sum of the values of the permissions for that class. Each digit of the permission number may be a sum of 4, 2, 1 and 0:
 
 * 0 (0+0+0) – No permission
 * 1 (0+0+1) – Only execute permission
@@ -158,12 +158,19 @@ The permissions digit of a specific user class is the sum of the values of the p
 * 6 (4+2+0) – Read and write permissions
 * 7 (4+2+1) – Read, write, and execute permission
 
-When the 4 digits number is used, the first digit is used for something else. We do not cover it in this memo.
+When a 4-digit number is used, the first digit is used for something else. We do not cover it in this memo.
 
-`chmod` changes the file mode (permission) bits of each given file according to mode, which can be either a symbolic representation of changes to make, or an octal number representing the bit pattern for the new mode bits.
+`chmod` allows changing the file permission.
 
 ```bash
- -R, --recursive
+# read permission for the owner, all others have no permissions at all
+chmod 400 [filename]
+
+# read and write permissions for the owner, all others have no permissions at all
+chmod 600 [filename]
+
+# read and write permissions for the owner, read permission for all others
+chmod 644 [filename]
 ```
 
 
