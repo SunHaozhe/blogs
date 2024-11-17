@@ -416,13 +416,13 @@ The **n-step return** can be computed by truncating the sum of returns after n s
 ![one_step_return_rl.png](/blogs/assets/images/blog/one_step_return_rl.png)
 
 
-In n-step returns, $n$ acts as a trade-off between bias and variance for the value estimator. While $R_t^{(\infinity)}$ provides an unbiased but high variance estimator, $R_t^{(1)}$ provides a biased but low variance estimator. 
+In n-step returns, $n$ acts as a trade-off between bias and variance for the value estimator. While $R_t^{(∞)}$ provides an unbiased but high variance estimator, $R_t^{(1)}$ provides a biased but low variance estimator. 
 
 Another method to trade off between the bias and variance of the estimator is to use a **λ-return**, calculated as an exponentially-weighted average of n-step returns with decay parameter λ:
 
 ![lambda_return_rl.png](/blogs/assets/images/blog/lambda_return_rl.png)
 
-λ = 0 reduces to the single-step return $R_t^{(1)}$, and λ = 1 recovers the Monte-Carlo return $R_t^{(\infinity)}$. Intermediate values of $\lambda \in (0, 1)$ produces interpolants that can be used to balance the bias and variance of the value estimator.
+λ = 0 reduces to the single-step return $R_t^{(1)}$, and λ = 1 recovers the Monte-Carlo return $R_t^{(∞)}$. Intermediate values of $\lambda \in (0, 1)$ produces interpolants that can be used to balance the bias and variance of the value estimator.
 
 
 When the model is fully known, following Bellman equations, we can use **Dynamic Programming (DP)** to iteratively evaluate value functions and improve policy.
@@ -492,4 +492,17 @@ TD control:
 
 
 [1] Testing the assumptions of linear regression. (n.d.). people.duke.edu. https://people.duke.edu/~rnau/testing.htm 
+[2] Sutton, Richard S., and Andrew G. Barto. Reinforcement Learning: An Introduction. Second. The MIT Press, 2018. http://incompleteideas.net/book/the-book-2nd.html.
+[3] Schulman, John, Philipp Moritz, Sergey Levine, Michael Jordan, and Pieter Abbeel. “High-Dimensional Continuous Control Using Generalized Advantage Estimation.” arXiv E-Prints, June 2015, arXiv:1506.02438.
+[4] Weng, Lilian. A (Long) Peek into Reinforcement Learning. 2018. https://lilianweng.github.io/posts/2018-02-19-rl-overview/ 
+[5] Peng, Xue Bin, Pieter Abbeel, Sergey Levine, and Michiel van de Panne. “DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills.” arXiv, July 27, 2018. http://arxiv.org/abs/1804.02717.
+
+
+
+
+
+
+
+
+
 

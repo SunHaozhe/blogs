@@ -37,6 +37,57 @@ program [arguments...] 2>&1 | tee logs.txt
 
 # Users and groups in linux
 
+
+### 确定你在Linux或类Unix系统中的角色（即你当前的用户身份和用户组）
+
+使用 `whoami` 命令可以显示你当前的用户名
+
+
+
+### ID command
+
+使用 `id` 命令可以查看你的用户ID、主组ID以及附加组信息。uid是用户ID。gid是主组ID。groups显示你所属的所有组，包括主组和附加组。
+
+The `id` command prints information about the specified user and its groups. 
+
+If the username is omitted it shows information for the current user.
+
+```bash
+id
+```
+
+To get information about a specific user
+
+```bash
+id [user_name]
+```
+
+
+### Groups
+
+In order to list all groups in Linux
+
+```bash
+cat /etc/group
+```
+
+Like `/etc/passwd`, there is one entry per line, all fields are separated by a colon `:`. The first field is the name of group `group_name`. If you run `ls -l` command, you will see this name printed in the group field. The second field is the password, generally password is not used, hence it is empty/blank. It can store encrypted password. This is useful to implement privileged groups. The third field is the Group ID (GID), each user must be assigned a group ID. You can see this number in your `/etc/passwd` file. The fourth field is the group List, it is a list of user names of users who are members of the group. The user names, must be separated by commas. 
+
+可以使用 `groups` 命令查看 你所属的所有组。
+
+In order to list all groups the current user belongs to (the first group is the primary group)
+
+```bash
+groups
+```
+
+To get a list of all groups a specific user belongs to, provide the username to the groups command as an argument
+
+```bash
+groups [user_name]
+```
+
+
 ### Users
 
 In order to list all users in Linux
@@ -53,43 +104,7 @@ mike:x:1242:1308:,,,:/home/mike:/bin/bash
 
 where `mike` is the user name or login name. `x` is the encrypted password is stored in the `/etc/shadow` file. `1242` is the UID (user ID number). `1308` is the primary GID (group ID number). Then it is GECOS. It may includes user’s full name (or application name, if the account is for a program), building and room number or contact person, office telephone number, home telephone number and any other contact information. `/home/mike` is the home directory for the user. `/bin/bash` is the login shell for the user. Pathnames of valid login shells comes from the `/etc/shells` file.
 
-### Groups
 
-In order to list all groups in Linux
-
-```bash
-cat /etc/group
-```
-
-Like `/etc/passwd`, there is one entry per line, all fields are separated by a colon `:`. The first field is the name of group `group_name`. If you run `ls -l` command, you will see this name printed in the group field. The second field is the password, generally password is not used, hence it is empty/blank. It can store encrypted password. This is useful to implement privileged groups. The third field is the Group ID (GID), each user must be assigned a group ID. You can see this number in your `/etc/passwd` file. The fourth field is the group List, it is a list of user names of users who are members of the group. The user names, must be separated by commas. 
-
-In order to list all groups the currently logged in user belongs to (the first group is the primary group.)
-
-```bash
-groups
-```
-
-To get a list of all groups a specific user belongs to, provide the username to the groups command as an argument
-
-```bash
-groups [user_name]
-```
-
-### ID command
-
-The `id` command prints information about the specified user and its groups. 
-
-If the username is omitted it shows information for the current user.
-
-```bash
-id
-```
-
-To get information about a specific user
-
-```bash
-id [user_name]
-```
 
 ### Adding a new user
 
@@ -104,7 +119,7 @@ adduser --disabled-password --gecos '' --shell /bin/bash [user_name]
 * `--shell` sets the user's login shell, rather than the default specified by the configuration file. 
 
 
-# File mode
+# File permission
 
 In Linux, access to the files is controlled by the operating system using file permissions, attributes, and ownership. Each file is owned by a particular user and a group and assigned with permission access rights for three different classes of users:
 
@@ -163,6 +178,9 @@ When a 4-digit number is used, the first digit is used for something else. We do
 `chmod` allows changing the file permission.
 
 ```bash
+# 拥有者有读、写和执行权限（rwx），同组用户有读和执行权限（r-x），其他用户有读和执行权限（r-x）。
+chmod 755 [filename]
+
 # read permission for the owner, all others have no permissions at all
 chmod 400 [filename]
 
@@ -172,6 +190,9 @@ chmod 600 [filename]
 # read and write permissions for the owner, read permission for all others
 chmod 644 [filename]
 ```
+
+
+
 
 
 
