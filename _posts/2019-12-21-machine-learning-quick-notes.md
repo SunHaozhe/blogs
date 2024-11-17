@@ -492,9 +492,13 @@ TD control:
 
 
 [1] Testing the assumptions of linear regression. (n.d.). people.duke.edu. https://people.duke.edu/~rnau/testing.htm 
+
 [2] Sutton, Richard S., and Andrew G. Barto. Reinforcement Learning: An Introduction. Second. The MIT Press, 2018. http://incompleteideas.net/book/the-book-2nd.html.
+
 [3] Schulman, John, Philipp Moritz, Sergey Levine, Michael Jordan, and Pieter Abbeel. “High-Dimensional Continuous Control Using Generalized Advantage Estimation.” arXiv E-Prints, June 2015, arXiv:1506.02438.
+
 [4] Weng, Lilian. A (Long) Peek into Reinforcement Learning. 2018. https://lilianweng.github.io/posts/2018-02-19-rl-overview/ 
+
 [5] Peng, Xue Bin, Pieter Abbeel, Sergey Levine, and Michiel van de Panne. “DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills.” arXiv, July 27, 2018. http://arxiv.org/abs/1804.02717.
 
 
